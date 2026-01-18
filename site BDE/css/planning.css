@@ -1,0 +1,155 @@
+/* --- CONFIGURATION GLOBALE --- */
+body {
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+    background: #ffffff; /* Fond clair pour faire ressortir les cartes */
+    color: #000;
+    padding-top: 85px; /* Évite que le contenu soit sous la navbar */
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR (Style Harmonisé) --- */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 75px;
+    background-color: #b6231b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 2000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+}
+
+.logo-conteneur { display: flex; align-items: center; gap: 15px; }
+.logo-image { height: 55px; border-radius: 50%; }
+.titre-principal { font-family: 'Jersey 15', cursive; font-size: 30px; color: white; margin: 0; text-transform: uppercase; }
+
+.liens-navbar { display: flex; gap: 25px; }
+.liens-navbar a { color: white; text-decoration: none; font-weight: 600; font-size: 17px; transition: 0.3s; border-bottom: 2px solid transparent; }
+.liens-navbar a:hover { color: #ffd700; border-bottom: 2px solid #ffd700; }
+
+/* --- CONTENU PLANNING --- */
+.contenu-planning {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.titre-page-planning {
+    font-family: 'Jersey 15', cursive;
+    font-size: 60px;
+    color: #b6231b;
+    margin-bottom: 50px;
+}
+
+.carte-planning {
+    background: white;
+    margin-bottom: 60px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 5px solid #b6231b;
+    transition: transform 0.3s ease;
+}
+
+.carte-planning:hover {
+    transform: translateY(-5px);
+}
+
+.date-semaine {
+    font-size: 28px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.image-wrapper img {
+    width: 70%; /* Réduit la taille de l'image sur PC */
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* --- FOOTER --- */
+.pied-de-page {
+    background: #b6231b;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.conteneur-sociaux {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.icone-sociale { 
+    width: 40px; /* Réduit pour être plus propre */
+    height: 40px; 
+    object-fit: contain; 
+    transition: transform 0.2s;
+}
+
+.icone-sociale:hover { 
+    transform: scale(1.2); /* <--- C'EST CECI */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    .liens-navbar { gap: 15px; margin-top: 10px; }
+    body { padding-top: 130px; }
+    
+    .titre-page-planning { font-size: 40px; }
+    
+    .image-wrapper img {
+        width: 100%; /* L'image prend toute la place sur téléphone */
+    }
+}
+
+.jeton-poker-global { 
+    position: fixed; 
+    z-index: 9995; 
+    pointer-events: none; 
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    will-change: transform; 
+}
+
+@keyframes animationChuteGlobale {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+.carte-souris-globale { 
+    position: fixed; 
+    pointer-events: none; 
+    z-index: 9998; 
+    font-size: 24px;
+    color: #b6231b; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    will-change: transform, opacity;
+    animation: flottementCarteGlobal 0.8s ease-out forwards;
+}
+
+@keyframes flottementCarteGlobal {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--depX), var(--depY)) rotate(var(--rotFin)); opacity: 0; }
+}

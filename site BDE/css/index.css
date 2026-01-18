@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
+/* --- BASES --- */
+body {
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+    background: #ffffff;
+    color: #000;
+    scroll-behavior: smooth; 
+    padding-top: 75px; 
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: #b6231b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 2000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+}
+
+.logo-conteneur {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 55px; 
+    width: auto;
+    border-radius: 50%;
+}
+
+.titre-principal {
+    font-family: 'Jersey 15', cursive;
+    font-size: 30px;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.liens-navbar {
+    display: flex;
+    gap: 25px;
+}
+
+.liens-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.liens-navbar a:hover {
+    color: #ffd700; 
+    border-bottom: 2px solid #ffd700;
+}
+
+/* --- ZONE HERO (BIERE) --- */
+.zone-hero {
+    background: #0f0f0f;
+    height: 400px;
+    position: relative; 
+    overflow: hidden; 
+    display: flex;
+}
+
+.slogan-escalier {
+    color: white;
+    font-size: 60px;
+    font-family: 'Jersey 15';
+    z-index: 2;
+    padding: 50px 20px;
+}
+
+.marche-2 { padding-left: 140px !important; display: block; margin-top: 15px; }
+.marche-3 { padding-left: 280px !important; display: block; margin-top: 15px; }
+
+.bouton-biere {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 3s ease-in-out;
+}
+
+.bouton-biere.versage-en-cours {
+    transform: translateX(-50%) rotate(180deg); 
+    opacity: 0;
+}
+
+.liquide-biere {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; 
+    background: repeating-linear-gradient(45deg, #FFD700, #FFA500 5px, #FFC400 5px, #FFA500 10px);
+    transition: height 30s ease-out; 
+    z-index: 1;
+}
+
+.liquide-biere.en-train-de-remplir {
+    height: 100%; 
+}
+
+/* --- GRILLE MEMBRES --- */
+.texte-presentation {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.accent-rouge {
+    font-size: 32px;
+    color: #b6231b;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.bouton-action {
+    display: inline-block;
+    background: #b6231b;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.section-membres {
+    background: #f2f2f2;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.sous-titre-pole {
+    font-size: 28px;
+    color: #b6231b;
+    border-bottom: 3px solid #b6231b;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.grille-membres {
+    display: grid;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+    justify-items: center;
+}
+
+.grille-4 { grid-template-columns: repeat(4, 1fr); }
+.grille-3 { grid-template-columns: repeat(3, 1fr); }
+.grille-2 { grid-template-columns: repeat(2, 1fr); max-width: 600px; }
+.grille-1 { grid-template-columns: 1fr; max-width: 250px; }
+
+.carte-membre {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+.carte-membre:hover { transform: translateY(-5px); }
+
+.carte-membre img {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+.carte-membre p { font-weight: bold; margin-top: 10px; }
+
+/* --- FOOTER --- */
+.pied-de-page {
+    background: #b6231b;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.conteneur-sociaux {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.icone-sociale { 
+    width: 40px; /* Réduit pour être plus propre */
+    height: 40px; 
+    object-fit: contain; 
+    transition: transform 0.2s;
+}
+
+.icone-sociale:hover { transform: scale(1.2); }
+
+/* --- ANIMATIONS GLOBALES (JETONS & CURSEUR) --- */
+.jeton-poker-global { 
+    position: fixed; 
+    z-index: 9995; 
+    pointer-events: none; 
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    will-change: transform; 
+}
+
+@keyframes animationChuteGlobale {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+.carte-souris-globale { 
+    position: fixed; 
+    pointer-events: none; 
+    z-index: 9998; 
+    font-size: 24px;
+    color: #b6231b; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    will-change: transform, opacity;
+    animation: flottementCarteGlobal 0.8s ease-out forwards;
+}
+
+@keyframes flottementCarteGlobal {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--depX), var(--depY)) rotate(var(--rotFin)); opacity: 0; }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+    .grille-4, .grille-3 { grid-template-columns: repeat(2, 1fr); }
+    .navbar { padding: 0 20px; }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .liens-navbar {
+        gap: 15px;
+        margin-top: 10px;
+    }
+    .liens-navbar a { font-size: 14px; }
+    body { padding-top: 110px; } 
+
+    .slogan-escalier { font-size: 35px; }
+    .marche-2 { padding-left: 50px !important; }
+    .marche-3 { padding-left: 100px !important; }
+    
+    .grille-membres { 
+        grid-template-columns: 1fr !important; 
+        max-width: 90%; 
+    }
+    .icone-sociale { width: 50px; height: 50px; }
+}

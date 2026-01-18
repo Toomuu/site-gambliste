@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+    background: #ffffff;
+    padding-top: 75px; 
+    overflow-x: hidden;
+}
+
+/* navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: #b6231b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 2000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+}
+
+.logo-conteneur {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 55px; 
+    width: auto;
+    border-radius: 50%;
+}
+
+.titre-principal {
+    font-family: 'Jersey 15', cursive;
+    font-size: 30px;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.liens-navbar {
+    display: flex;
+    gap: 25px;
+}
+
+.liens-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.liens-navbar a:hover {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+
+/* --- AJOUT RESPONSIVE NAVBAR --- */
+@media (max-width: 700px) {
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .liens-navbar {
+        gap: 15px;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    .liens-navbar a {
+        font-size: 14px;
+    }
+    body {
+        padding-top: 110px; 
+    }
+}
+
+.lien-page { color: white; text-decoration: none; font-weight: bold; }
+
+.pied-de-page { background: #b6231b; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+.conteneur-sociaux { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; }
+.icone-sociale { width: 35px; height: 35px; object-fit: contain; }
+
+/* allos */
+.zone-hero-allos {
+    background: #0f0f0f;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+.titre-page {
+    font-family: 'Jersey 15', cursive;
+    font-size: 80px;
+    color: #b6231b;
+    margin: 0;
+}
+
+.section-allos { padding: 50px 20px; }
+.grille-allos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carte-allo {
+    border: 2px solid #b6231b;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+.carte-allo:hover {
+    background: #b6231b;
+    color: white;
+    transform: translateY(-5px);
+}
+.allo-icone { font-size: 45px; margin-bottom: 10px; }
+
+/* contact/nums */
+.section-contacts { background: #f2f2f2; padding: 50px 20px; text-align: center; }
+.grille-membres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+.carte-membre { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.bouton-tel { color: #b6231b; text-decoration: none; font-weight: bold; display: block; margin-top: 5px; }
+
+
+/* jeton qui tombent */
+.jeton-poker-global { 
+    position: fixed; 
+    z-index: 9995; 
+    pointer-events: none;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    will-change: transform; 
+}
+
+@keyframes animationChuteGlobale {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* traînée du curseur */
+.carte-souris-globale { 
+    position: fixed; 
+    pointer-events: none; 
+    z-index: 9998; 
+    font-size: 24px;
+    color: #b6231b; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    will-change: transform, opacity;
+}
+
+@keyframes flottementCarteGlobal {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--depX), var(--depY)) rotate(var(--rotFin)); opacity: 0; }
+}
+
+/* --- FOOTER --- */
+.pied-de-page {
+    background: #b6231b;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.conteneur-sociaux {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.icone-sociale { 
+    width: 40px; /* Réduit pour être plus propre */
+    height: 40px; 
+    object-fit: contain; 
+    transition: transform 0.2s;
+}
+
+.icone-sociale:hover { 
+    transform: scale(1.2); /* <--- C'EST CECI */
+}
+
+/* Pour tes Allos */
+.contact-card img {
+    width: 100%;        /* L'image prend toute la largeur de la carte */
+    height: 200px;      /* On fixe une hauteur commune */
+    object-fit: cover;  /* L'image est recadrée proprement pour remplir les 200px */
+    border-radius: 10px 10px 0 0; /* Arrondi seulement en haut */
+}
+
+/* Pour tes fiches contacts (Membres) */
+.contact-card img {
+    width: 120px;       /* Taille fixe pour les avatars */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* On les met en cercle pour un look "trombinoscope" */
+    margin: 10px auto;  /* Centrage */
+    display: block;
+    border: 3px solid #b6231b;
+}
